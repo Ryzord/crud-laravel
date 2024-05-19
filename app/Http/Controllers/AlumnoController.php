@@ -29,7 +29,26 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'matricula' => 'required|unique:alumnos|max:10',
+            'nombre' => 'required|max:255',
+            'fecha' => 'required|date',
+            'telefono' => 'required',
+            'email' => 'nullable|email',
+            'nivel' => 'required',
+
+        ]);
+
+        $alumno = new Alumno();
+        $alumno->matricula = $request->input('matricula');
+        $alumno->nombre = $request->input('nombre');
+        $alumno->fecha_nacimiento = $request->input('fecha');
+        $alumno->telefono = $request->input('telefono');
+        $alumno->email = $request->input('email');
+        $alumno->nivel_id = $request->input('nivel');
+        $alumno->save();
+
+        return view("alumnos.message", ['msg' => "Registro guardado"]);
     }
 
     /**
