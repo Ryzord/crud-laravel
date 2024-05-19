@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Nivel;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -20,7 +21,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumnos.create', ['niveles' => Nivel::all()]);
     }
 
     /**
