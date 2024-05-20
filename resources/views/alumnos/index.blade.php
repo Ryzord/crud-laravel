@@ -9,7 +9,7 @@
         <h2>Listado de alumnos</h2>
 
         <a href="{{ url('alumnos/create')}}" class="btn btn-primary btn-sm">Nuevo registro</a>
-
+        {{-- Tabla --}}
         <table class="table table-hover">
             <thead>
                 <tr>
